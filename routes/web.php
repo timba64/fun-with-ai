@@ -10,12 +10,13 @@ Route::get('/', function () {
 Route::post('/roast', function () {
     $attributes = request()->validate([
         'topic' => [
-            'required', 'string', 'min:2', 'max:50'
+            'required', 'string', 'min:2', 'max:60'
         ]
     ]);
 
     $mp3 = (new Chat())->send(
-        message: "Please roast {$attributes['topic']} in a funny and sarcastic tone.",
+        // message: "Please roast {$attributes['topic']} in a funny and sarcastic tone.",
+        message: "Please, {$attributes['topic']}",
         speech: true
     );
 
